@@ -1,0 +1,8 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
+rootProject.name = 'matefit-backend'
+
+include 'matefit-core', 'matefit-auth', 'matefit-api'
