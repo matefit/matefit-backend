@@ -16,8 +16,15 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String email;
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    private ProviderType providerType;
+
+    @Column
+    private String providerId;
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
@@ -28,7 +35,9 @@ public class Account {
     private LocalDateTime updatedAt;
 
     @Builder
-    public Account(String email) {
+    public Account(String email, ProviderType providerType, String providerId) {
         this.email = email;
+        this.providerType = providerType;
+        this.providerId = providerId;
     }
 }
