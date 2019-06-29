@@ -22,6 +22,9 @@ public class Article {
     @Column(nullable = false, unique = true)
     private String content;
 
+    @Column(nullable = false, unique = true)
+    private Long account_id;
+
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private LocalDateTime created_at;
@@ -29,9 +32,6 @@ public class Article {
     @UpdateTimestamp
     @Column(nullable = false)
     private LocalDateTime updated_at;
-
-    @Column(nullable = false, unique = true)
-    private Long account_id;
 
     @Builder
     public Article(String title) {
