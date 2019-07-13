@@ -3,8 +3,8 @@ package io.matefit.api.service;
 import io.matefit.api.response.DefaultRes;
 import io.matefit.api.response.ResponseMessage;
 import io.matefit.api.response.StatusCode;
-import io.matefit.core.dto.Comment;
-import io.matefit.core.dto.DoubleComment;
+import io.matefit.core.dto.CommentDto;
+import io.matefit.core.dto.DoubleCommentDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Transactional
 public class CommentService {
 
-    public DefaultRes createComment(@RequestBody Comment comment) {
+    public DefaultRes createComment(@RequestBody CommentDto commentDto) {
 
         try{
             // dto -> entity
@@ -27,7 +27,7 @@ public class CommentService {
         }
     }
 
-    public DefaultRes deleteComment(@RequestBody Comment comment) {
+    public DefaultRes deleteComment(@RequestBody CommentDto commentDto) {
 
         try{
             // dto -> entity
@@ -40,7 +40,7 @@ public class CommentService {
     }
 
 
-    public DefaultRes createDoubleComment(@RequestBody DoubleComment doubleComment) {
+    public DefaultRes createDoubleComment(@RequestBody DoubleCommentDto doubleCommentDto) {
 
         try{
             // dto -> entity
@@ -52,7 +52,7 @@ public class CommentService {
         }
     }
 
-    public DefaultRes deleteDoubleComment(@RequestBody DoubleComment doubleComment) {
+    public DefaultRes deleteDoubleComment(@RequestBody DoubleCommentDto doubleCommentDto) {
 
         try{
             // dto -> entity
