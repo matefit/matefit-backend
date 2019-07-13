@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class Comment {
+public class CommentDto {
     private int comment_id;
     private String content;
     private int account_id;

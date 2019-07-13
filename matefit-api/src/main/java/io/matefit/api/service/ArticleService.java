@@ -3,7 +3,8 @@ package io.matefit.api.service;
 import io.matefit.api.response.DefaultRes;
 import io.matefit.api.response.ResponseMessage;
 import io.matefit.api.response.StatusCode;
-import io.matefit.core.dto.Article;
+import io.matefit.core.domain.Article;
+import io.matefit.core.dto.ArticleDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,55 +15,57 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Transactional
 public class ArticleService {
 
-    public DefaultRes createArticle(@RequestBody Article article) {
+    public DefaultRes createArticle(@RequestBody ArticleDto articleDto) {
 
-        try{
-            // dto -> entity
+        try {
 
             return DefaultRes.res(StatusCode.OK, ResponseMessage.SUCCESS_TO_CREATE_ARTICLE);
-        } catch (Exception e){
+
+        } catch (Exception e) {
 
             return DefaultRes.res(StatusCode.OK, ResponseMessage.FAIL_TO_CREATE_ARTICLE);
         }
 
     }
 
-    public DefaultRes deleteArticle(@RequestBody Article article) {
+    public DefaultRes searchArticle(@RequestBody ArticleDto articleDto) {
 
-        try{
+        try {
             // dto -> entity
 
             return DefaultRes.res(StatusCode.OK, ResponseMessage.SUCCESS_TO_DELETE_ARTICLE);
-        } catch (Exception e){
+        } catch (Exception e) {
 
             return DefaultRes.res(StatusCode.OK, ResponseMessage.FAIL_TO_DELETE_ARTICLE);
         }
 
     }
 
-    public DefaultRes filterArticle(@RequestBody Article article) {
+    public DefaultRes filterArticle(@RequestBody ArticleDto articleDto) {
 
-        try{
+        try {
             // dto -> entity
 
             return DefaultRes.res(StatusCode.OK, ResponseMessage.SUCCESS_TO_DELETE_ARTICLE);
-        } catch (Exception e){
+        } catch (Exception e) {
 
             return DefaultRes.res(StatusCode.OK, ResponseMessage.FAIL_TO_DELETE_ARTICLE);
         }
 
     }
 
-    public DefaultRes searchArticle(@RequestBody Article article) {
 
-        try{
-            // dto -> entity
+//    public DefaultRes deleteArticle(@RequestBody ArticleDto articleDto) {
+//
+//        try {
+//            // dto -> entity
+//
+//            return DefaultRes.res(StatusCode.OK, ResponseMessage.SUCCESS_TO_DELETE_ARTICLE);
+//        } catch (Exception e) {
+//
+//            return DefaultRes.res(StatusCode.OK, ResponseMessage.FAIL_TO_DELETE_ARTICLE);
+//        }
+//
+//    }
 
-            return DefaultRes.res(StatusCode.OK, ResponseMessage.SUCCESS_TO_DELETE_ARTICLE);
-        } catch (Exception e){
-
-            return DefaultRes.res(StatusCode.OK, ResponseMessage.FAIL_TO_DELETE_ARTICLE);
-        }
-
-    }
 }
