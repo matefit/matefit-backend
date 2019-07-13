@@ -2,7 +2,6 @@ package io.matefit.api.controller;
 
 import io.matefit.api.service.AccountService;
 import io.matefit.api.service.impl.JwtServiceImpl;
-import io.matefit.core.domain.Account;
 import io.matefit.core.dto.security.JwtToken;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
