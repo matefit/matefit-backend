@@ -17,7 +17,7 @@ public class ArticleService {
     public DefaultRes createArticle(@RequestBody Article article) {
 
         try{
-
+            // dto -> entity
 
             return DefaultRes.res(StatusCode.OK, ResponseMessage.SUCCESS_TO_CREATE_ARTICLE);
         } catch (Exception e){
@@ -27,5 +27,42 @@ public class ArticleService {
 
     }
 
+    public DefaultRes deleteArticle(@RequestBody Article article) {
 
+        try{
+            // dto -> entity
+
+            return DefaultRes.res(StatusCode.OK, ResponseMessage.SUCCESS_TO_DELETE_ARTICLE);
+        } catch (Exception e){
+
+            return DefaultRes.res(StatusCode.OK, ResponseMessage.FAIL_TO_DELETE_ARTICLE);
+        }
+
+    }
+
+    public DefaultRes filterArticle(@RequestBody Article article) {
+
+        try{
+            // dto -> entity
+
+            return DefaultRes.res(StatusCode.OK, ResponseMessage.SUCCESS_TO_DELETE_ARTICLE);
+        } catch (Exception e){
+
+            return DefaultRes.res(StatusCode.OK, ResponseMessage.FAIL_TO_DELETE_ARTICLE);
+        }
+
+    }
+
+    public DefaultRes searchArticle(@RequestBody Article article) {
+
+        try{
+            // dto -> entity
+
+            return DefaultRes.res(StatusCode.OK, ResponseMessage.SUCCESS_TO_DELETE_ARTICLE);
+        } catch (Exception e){
+
+            return DefaultRes.res(StatusCode.OK, ResponseMessage.FAIL_TO_DELETE_ARTICLE);
+        }
+
+    }
 }

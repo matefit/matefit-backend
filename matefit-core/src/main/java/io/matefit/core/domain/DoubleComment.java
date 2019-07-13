@@ -1,29 +1,30 @@
 package io.matefit.core.domain;
 
-import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-@Entity
-@Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Article {
+public class DoubleComment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long article_id;
-
-    @Column(nullable = false, unique = true)
-    private String title;
+    private Long double_comment_id;
 
     @Column(nullable = false, unique = true)
     private String content;
 
+    // FK
     @Column(nullable = false, unique = true)
     private Long account_id;
+
+    // FK
+    @Column(nullable = false, unique = true)
+    private Long comment_id;
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
@@ -32,9 +33,4 @@ public class Article {
     @UpdateTimestamp
     @Column(nullable = false)
     private LocalDateTime updated_at;
-
-    @Builder
-    public Article(String title) {
-        this.title = title;
-    }
 }
