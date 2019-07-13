@@ -1,7 +1,7 @@
-package io.matefit.api;
+package io.matefit.api.controller;
 
 import io.matefit.core.domain.Account;
-import io.matefit.core.domain.AccountRepository;
+import io.matefit.core.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
