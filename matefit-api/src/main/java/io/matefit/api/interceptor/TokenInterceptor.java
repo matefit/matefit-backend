@@ -22,10 +22,17 @@ public class TokenInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object hanlder)
             throws Exception {
+        String token = request.getHeader("Authorization").substring(7);
+        Long accountId = jwtService.validateToken(token).orElse(null);
 
-        // final String token = request.getHeader("Authorization").substring(7);
-        // final Long accountId = jwtService.validateToken(token);
+        log.info("토큰: {}, 아이디: {}", token, accountId);
 
+        if (accountId == null) {
+            response.setStatus(HttpStatus.UNAUTHORIZED.value());
+            return false;
+        }
+
+        request.setAttribute("accountId", accountId);
         return true;
     }
 }

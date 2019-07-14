@@ -10,11 +10,14 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import io.matefit.core.domain.Account;
 import io.matefit.core.dto.security.JwtToken;
 import io.matefit.core.repository.AccountRepository;
+import javassist.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -39,15 +42,21 @@ public class JwtServiceImpl {
         return new JwtToken(token);
     }
 
-    public Long validateToken(String token) {
+    public Optional<Long> validateToken(String token) {
         try {
             final JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(secret)).build();
             final DecodedJWT decodedJWT = jwtVerifier.verify(token);
             final Long accountId = decodedJWT.getClaim("id").asLong();
 
-            return accountId;
+            Optional<Account> account = accountRepository.findById(accountId);
+
+            if(account.isPresent()) {
+                return Optional.of(accountId);
+            }
+
+            return Optional.empty();
         } catch (SignatureVerificationException | JWTDecodeException e) {
-            return null;
+            return Optional.empty();
         }
     }
 }
