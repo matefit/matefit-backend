@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
-    // 1. 검색어 이용한 검색 기능 추가
-    // 2. 해시 태그 이용한 필터 기능 추가
-    //
+    // 1. 해시 태그 + (지역, 성별, 룸타입)이용한 검색 기능 추가
+    // 2. 검색 결과 창에서 해시 태그를 바꿔가며 조회하는 추가
 }
