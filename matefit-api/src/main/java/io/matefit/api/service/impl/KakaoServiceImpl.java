@@ -31,20 +31,6 @@ public class KakaoServiceImpl implements KakaoService {
     private String redirectUri;
 
     @Override
-    public JsonNode getToken(String code) {
-        final URI requestUri = UriComponentsBuilder
-                .fromHttpUrl("https://kauth.kakao.com/oauth/token")
-                .queryParam("grant_type", "authorization_code")
-                .queryParam("client_id", clientId)
-                .queryParam("redirect_uri", redirectUri)
-                .queryParam("code", code)
-                .build(true)
-                .toUri();
-
-        return restTemplate.getForObject(requestUri, JsonNode.class);
-    }
-
-    @Override
     public JsonNode getInfo(String accessToken) {
         final URI requestUri = UriComponentsBuilder
                 .fromHttpUrl("https://kapi.kakao.com/v2/user/me")

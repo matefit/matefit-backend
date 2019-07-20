@@ -20,10 +20,9 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     @Transactional
-    public Account getAccountByProvider(String code) {
-        final String providerId = kakaoService.getInfo(
-                kakaoService.getToken(code).get("access_token").asText()
-        ).get("id").asText();
+    public Account getAccountByProvider(String accessToken) {
+        final String providerId = kakaoService.getInfo(accessToken)
+                .get("id").asText();
 
         return accountRepository.findAccountByProviderTypeAndProviderId(
                 ProviderType.KAKAO, providerId)
